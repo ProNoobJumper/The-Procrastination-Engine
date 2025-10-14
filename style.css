@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    margin: 0;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+.clock-display {
+    display: flex;
+    gap: 2rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.digit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.125rem;
+    width: calc(4 * 3rem + 3 * 0.125rem);
+    height: calc(6 * 3rem + 5 * 0.125rem);
+}
+
+.clock {
+    height: 3rem;
+    width: 3rem;
+    background: #e0e0e0;
+    border: 0.1rem solid #c0c0c0;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    width: 50%;
+    height: 0.1875rem;
+    background-color: #000000;
+    transform-origin: center left;
+    transition: transform 250ms ease-in-out;
+}
