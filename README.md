@@ -22,6 +22,7 @@ The goal is beautifully simple: to tell you the current time. But the execution 
 ## Developer Info
 
 This temporal masterpiece was inspired by EntropyReversed on Reddit and brought to you by a developer who clearly had too much time on their hands. Specializing in elegant solutions to problems that don't exist, this project is a testament to what can be achieved with a little bit of code and a whole lot of "why not?".
+
 https://www.reddit.com/r/webdev/comments/1nrx5n9/clock_made_of_clocks/
 
 ---
