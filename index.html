@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock of Tiny Clocks</title>
+    <title>The Procrastination Engine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="theme-toggle-container">
+        <label class="theme-toggle" for="theme-toggle-checkbox">
+            <input type="checkbox" id="theme-toggle-checkbox">
+            <div class="slider"></div>
+        </label>
+    </div>
+
     <div class="clock-display">
         </div>
+
     <script src="script.js"></script>
+    <script>
+        const toggle = document.getElementById('theme-toggle-checkbox');
+        toggle.addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode', this.checked);
+        });
+    </script>
 </body>
 </html>
