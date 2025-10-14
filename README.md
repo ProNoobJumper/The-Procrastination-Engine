@@ -1,8 +1,8 @@
-# Clock-of-Clocks
+# The-Procrastination-Engine
 
 *It's time... within a time... within a time.*
 
-Welcome to **Clock-of-Clocks**, the only digital clock that has an identity crisis. Why have one clock when you can have hundreds working in perfect, synchronized harmony? Conceived from a moment of profound procrastination, this project answers the question nobody asked: "What if my clock was made of more, smaller clocks?"
+Welcome to **The-Procrastination-Engine**, the only digital clock that has an identity crisis. Why have one clock when you can have hundreds working in perfect, synchronized harmony? Conceived from a moment of profound procrastination, this project answers the question nobody asked: "What if my clock was made of more, smaller clocks?"
 
 ## How It Works
 
