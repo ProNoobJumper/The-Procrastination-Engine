@@ -1,12 +1,37 @@
+/* Define color variables for theming */
+:root {
+    --bg-color: #f2f2f7;
+    --clock-display-bg: rgba(255, 255, 255, 0.7);
+    --clock-face-bg: rgba(229, 229, 234, 0.8);
+    --hand-color: #000000;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --toggle-bg: #e9e9eb;
+    --toggle-slider-bg: #ffffff;
+}
+
+body.dark-mode {
+    --bg-color: #1c1c1e;
+    --clock-display-bg: rgba(44, 44, 46, 0.8);
+    --clock-face-bg: rgba(60, 60, 67, 0.6);
+    --hand-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.37);
+    --toggle-bg: #3a3a3c;
+    --toggle-slider-bg: #1c1c1e;
+}
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #1a1a1a;
     margin: 0;
     font-family: monospace;
     overflow: hidden;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
 }
 
 .clock-display {
@@ -14,8 +39,12 @@ body {
     gap: 2rem;
     border-radius: 1.5rem;
     padding: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    background: var(--clock-display-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .digit {
@@ -30,21 +59,73 @@ body {
 .clock {
     height: 3rem;
     width: 3rem;
-    background: #e0e0e0;
-    border: 0.1rem solid #c0c0c0;
+    background: var(--clock-face-bg);
     position: relative;
     border-radius: 50%;
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
 .hand {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(0%, -50%);
     width: 50%;
     height: 0.1875rem;
-    background-color: #000000;
+    background-color: var(--hand-color);
     transform-origin: center left;
-    transition: transform 250ms ease-in-out;
+    transform: translate(0%, -50%);
+    transition: transform 250ms ease-in-out, background-color 0.3s ease;
+}
+
+/* --- Theme Toggle Styles --- */
+.theme-toggle-container {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--toggle-bg);
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--toggle-slider-bg);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--toggle-bg);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
