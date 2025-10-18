@@ -1,24 +1,35 @@
-/* Define color variables for theming */
 :root {
-    --bg-color: #f2f2f7;
-    --clock-display-bg: rgba(255, 255, 255, 0.7);
-    --clock-face-bg: rgba(229, 229, 234, 0.8);
+    --bg-color: #e6e6e6;
+    --clock-display-bg: rgba(230, 230, 230, 0.7);
     --hand-color: #000000;
     --border-color: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.15);
-    --toggle-bg: #e9e9eb;
+    --toggle-bg: #d9d9d9;
     --toggle-slider-bg: #ffffff;
+    --clock-gradient-start: #ffffff;
+    --clock-gradient-end: #d0d0d0;
+    --clock-border-color: #ffffff;
+    --clock-shadow-light: #ffffff;
+    --clock-shadow-dark: #d0d0d0;
 }
 
 body.dark-mode {
     --bg-color: #1c1c1e;
     --clock-display-bg: rgba(44, 44, 46, 0.8);
-    --clock-face-bg: rgba(60, 60, 67, 0.6);
     --hand-color: #ffffff;
     --border-color: rgba(255, 255, 255, 0.2);
     --shadow-color: rgba(0, 0, 0, 0.37);
     --toggle-bg: #3a3a3c;
     --toggle-slider-bg: #1c1c1e;
+    --clock-gradient-start: #3a3a3c;
+    --clock-gradient-end: #1a1a1c;
+    --clock-border-color: #4a4a4c;
+    --clock-shadow-light: #4a4a4c;
+    --clock-shadow-dark: #0e0e0f;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -36,6 +47,7 @@ body {
 
 .clock-display {
     display: flex;
+    align-items: center;
     gap: 2rem;
     border-radius: 1.5rem;
     padding: 1rem;
@@ -59,26 +71,28 @@ body {
 .clock {
     height: 3rem;
     width: 3rem;
-    background: var(--clock-face-bg);
+    border: 2px solid var(--clock-border-color);
+    background: linear-gradient(225deg, var(--clock-gradient-end) 10%, var(--clock-gradient-start));
+    box-shadow: -2px 2px 6px var(--clock-shadow-dark),
+                2px -2px 6px var(--clock-shadow-light);
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .hand {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 1.5px);
     left: 50%;
-    width: 50%;
-    height: 0.1875rem;
+    width: 47%;
+    height: 3px;
     background-color: var(--hand-color);
+    border-radius: 9999px;
     transform-origin: center left;
-    transform: translate(0%, -50%);
-    transition: transform 250ms ease-in-out, background-color 0.3s ease;
+    transition: transform 400ms ease-in-out, background-color 0.3s ease;
 }
 
-/* --- Theme Toggle Styles --- */
 .theme-toggle-container {
     position: absolute;
     top: 2rem;
